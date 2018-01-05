@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {selectProject} from '../actions';
 import Pages from './Pages';
+import Loading from './Loading';
 import './Project.css';
 
 class ProjectComponent extends Component {
@@ -22,12 +23,13 @@ class ProjectComponent extends Component {
 		if(project.selected){
 			className += ' open';
 		}
+		let loading = '';
 		if(project.isFetching){
-			className += ' red';
+			loading = (<Loading />)
 		}
 		return (
 			<li {...attrs} className={className}>
-				<h4 onClick={() => this.handleClick(project.name)}>{project.name}</h4>
+				<h4 onClick={() => this.handleClick(project.name)}>{project.name} {loading}</h4>
 				{content}
 			</li>
 		);

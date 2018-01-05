@@ -18,6 +18,11 @@ const project = (state = {}, action) => {
 				...state,
 				selected: action.id===state.name
 			};
+		case 'DESELECT_PROJECT':
+			return {
+				...state,
+				selected: false
+			};
 		default:
 			return state
 	}
@@ -35,11 +40,20 @@ const byName = (state = {}, action) => {
 			return state;
 		case 'SELECT_PROJECT':
 			const curSelected = state.selected;
-			return {
+			const newState = {
 				...state,
-				[curSelected]: project(state[action.id], action),
 				[action.id]: project(state[action.id], action),
 				selected: action.id
+			};
+			if(curSelected){
+				newState[curSelected] = project(state[curSelected], action);
+			}
+			return newState;
+		case 'DESELECT_PROJECT':
+			return {
+				...state,
+				[action.id]: project(state[action.id], action),
+				selected: null
 			};
 		default:
 			if(action.id&&state[action.id]){

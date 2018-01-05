@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './Page.css';
 
-class ProjectComponent extends Component {
+class PageComonent extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -16,6 +16,6 @@ class ProjectComponent extends Component {
 	}
 }
 
-const Project = connect()(ProjectComponent);
+const Page = connect()(PageComonent);
 
-export default Project;
+export default Page;

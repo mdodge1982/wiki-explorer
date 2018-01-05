@@ -1,6 +1,10 @@
 .Pages {
+	display: none;
 	background: #fff;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+}
+.open .Pages {
+	display: block;
 }

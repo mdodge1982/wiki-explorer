@@ -58,12 +58,15 @@ const selectProject = (projectName) => {
 		//Fetch the pages if there are none yet
 		const {byName} = getState();
 		const project = byName[projectName];
-		if(project.pages.length===0){
+		let type = 'SELECT_PROJECT';
+		if(project.selected){
+			type = 'DESELECT_PROJECT'
+		}else if(project.pages.length===0){
 			dispatch(fetchPages(projectName));
 		}
 		dispatch({
-			type: 'SELECT_PROJECT',
-			name: projectName
+			type,
+			id: projectName
 		});
 	};
 }
