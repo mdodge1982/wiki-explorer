@@ -4,17 +4,17 @@ import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import thunk from 'redux-thunk';
 import './index.css';
-import wikiExplorerApp from './reducers';
-import ProjectsContainer from './containers/ProjectsContainer';
+import reducer from './reducers';
+import Projects from './components/Projects';
 
 let store = createStore(
-	wikiExplorerApp,
+	reducer,
 	applyMiddleware(thunk)
 );
 
 render(
 	<Provider store={store}>
-		<ProjectsContainer />
+		<Projects />
 	</Provider>,
 	document.getElementById('root')
 );

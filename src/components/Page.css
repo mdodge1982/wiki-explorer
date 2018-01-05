@@ -1,0 +1,9 @@
+.Page {
+	margin: 0;
+}
+.Page h5 {
+	margin: 0;
+	padding: .4em 1em;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+}

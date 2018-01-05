@@ -1,0 +1,21 @@
+.index {
+	padding: 1em 2em .5em;
+	margin: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: linear-gradient(to bottom, #fff 0%,#f7f7f7 100%);
+	border-bottom: 1px solid #A9D8F7;
+}
+.index a {
+	display: inline-block;
+	padding: .2em .3em;
+}
+.Projects {
+	margin: 4em 2em;
+	padding: 0;
+	background: #f9f9f9;
+	border: 1px solid #ddd;
+	border-bottom: none;
+	list-style-type: none;
+}
