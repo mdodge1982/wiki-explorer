@@ -30,7 +30,7 @@ test('Test render', () => {
 	store.dispatch(selectPage(page));
 	const component = renderer.create(
 		<Provider store={store}>
-			<PageDetail />
+			<PageDetail/>
 		</Provider>
 	);
 	let tree = component.toJSON();
@@ -42,10 +42,10 @@ test('Button closes modal', () => {
 	expect(store.getState().selectedPage.pageid).toEqual(9020);
 	const component = ReactTestUtils.renderIntoDocument(
 		<Provider store={store}>
-			<PageDetail />
+			<PageDetail/>
 		</Provider>
 	);
-	const button = ReactTestUtils.findRenderedDOMComponentWithTag(component,'button');
+	const button = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'button');
 	ReactTestUtils.Simulate.click(button);
 	expect(store.getState().selectedPage.pageid).toBeUndefined();
 });

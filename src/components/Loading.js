@@ -5,11 +5,11 @@ class Loading extends Component {
 		super(props);
 		const int = setInterval(() => {
 			let newContent = '';
-			if(this.state.content!=='...'){
-				newContent = this.state.content+'.';
+			if (this.state.content !== '...') {
+				newContent = this.state.content + '.';
 			}
 			this.setState({content: newContent});
-		},100);
+		}, 100);
 		this.state = {
 			content: '',
 			int
@@ -21,7 +21,6 @@ class Loading extends Component {
 		)
 	}
 	componentWillUnmount() {
-		console.log('component unmount');
 		clearInterval(this.state.int);
 	}
 }

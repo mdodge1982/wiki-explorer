@@ -10,21 +10,21 @@ class ProjectComponent extends Component {
 		const project = this.props.project;
 		let namedAnchor = '';
 		let className = 'Project';
-		if(this.props.isNewIdx){
-			namedAnchor = (<span className="named-anchor" id={project.name.charAt(0)}></span>)
-		}
-		let content = '';
-		if(project.pages.length>0){
-			content = (
-				<Pages pages={project.pages} />
+		if (this.props.isNewIdx) {
+			namedAnchor = (
+				<span className="named-anchor" id={project.name.charAt(0)}></span>
 			)
 		}
-		if(project.selected){
+		let content = '';
+		if (project.pages.length > 0) {
+			content = (<Pages pages={project.pages}/>)
+		}
+		if (project.selected) {
 			className += ' open';
 		}
 		let loading = '';
-		if(project.isFetching){
-			loading = (<Loading />)
+		if (project.isFetching) {
+			loading = (<Loading/>)
 		}
 		return (
 			<li className={className}>
@@ -40,7 +40,9 @@ class ProjectComponent extends Component {
 }
 
 //Use connect to get state and dispatch
-const mapStateToProps = ({byName},ownprops) => {
+const mapStateToProps = ({
+	byName
+}, ownprops) => {
 	const project = byName[ownprops.projectName];
 	return {project};
 }

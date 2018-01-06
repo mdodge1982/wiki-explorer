@@ -7,9 +7,7 @@ class Pages extends Component {
 		return (
 			<ul className="Pages">
 				{this.props.pages.map(page => {
-					return (
-						<Page key={page.pageid} page={page} />
-					)
+					return (<Page key={page.pageid} page={page}/>)
 				})}
 			</ul>
 		);

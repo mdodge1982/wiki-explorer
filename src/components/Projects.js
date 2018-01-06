@@ -27,8 +27,8 @@ class ProjectsComponent extends Component {
 			}
 			return (
 				//Tell the Project instance whether it needs to add an anchor for the index
-				<Project key={projectName} projectName={projectName} isNewIdx={isNewIdx} />
-			)
+				<Project key={projectName} projectName={projectName} isNewIdx={isNewIdx}/>
+			);
 		});
 		return (
 			<div>

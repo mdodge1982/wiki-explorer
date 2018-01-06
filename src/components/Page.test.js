@@ -12,7 +12,7 @@ test('Test render', () => {
 	}
 	const component = renderer.create(
 		<Provider store={store}>
-			<Page page={page} />
+			<Page page={page}/>
 		</Provider>
 	);
 	let tree = component.toJSON();

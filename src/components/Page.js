@@ -6,7 +6,9 @@ import './Page.css';
 class PageComonent extends Component {
 	render() {
 		return (
-			<li className="Page"><h5 onClick={() => this.handleClick()}>{this.props.page.title}</h5></li>
+			<li className="Page">
+				<h5 onClick={() => this.handleClick()}>{this.props.page.title}</h5>
+			</li>
 		);
 	}
 	handleClick() {

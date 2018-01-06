@@ -7,13 +7,10 @@ import renderer from 'react-test-renderer';
 jest.mock('../actions/websocket');
 
 test('Test render', () => {
-	store.dispatch({
-		type: 'PROJECT.LIST',
-		data: ['My Fun Project']
-	});
+	store.dispatch({type: 'PROJECT.LIST', data: ['My Fun Project']});
 	const component = renderer.create(
 		<Provider store={store}>
-			<Projects />
+			<Projects/>
 		</Provider>
 	);
 	let tree = component.toJSON();

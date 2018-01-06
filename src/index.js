@@ -7,7 +7,7 @@ import './index.css';
 
 render(
 	<Provider store={store}>
-		<Projects />
+		<Projects/>
 	</Provider>,
 	document.getElementById('root')
 );

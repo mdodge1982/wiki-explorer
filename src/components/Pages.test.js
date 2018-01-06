@@ -7,10 +7,18 @@ import renderer from 'react-test-renderer';
 jest.mock('../actions/websocket');
 
 test('Test render', () => {
-	const pages = [{pageid:1},{pageid:2},{pageid:3}];
+	const pages = [
+		{
+			pageid: 1
+		}, {
+			pageid: 2
+		}, {
+			pageid: 3
+		}
+	];
 	const component = renderer.create(
 		<Provider store={store}>
-			<Pages pages={pages} />
+			<Pages pages={pages}/>
 		</Provider>
 	);
 	let tree = component.toJSON();

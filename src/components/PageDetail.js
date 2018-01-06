@@ -6,7 +6,7 @@ import './PageDetail.css';
 class PageDetailComonent extends Component {
 	render() {
 		const page = this.props.page;
-		if(!page.pageid){
+		if (!page.pageid) {
 			return '';
 		}
 		const revision = page.revisions[0];
@@ -18,28 +18,29 @@ class PageDetailComonent extends Component {
 					<div className="flex">
 						<dl>
 							<dt>
-							Page ID
+								Page ID
 							</dt>
 							<dd>
-							{page.pageid}
+								{page.pageid}
 							</dd>
 						</dl>
 
 						<dl>
 							<dt>
-							Language
+								Language
 							</dt>
 							<dd>
-							{page.pagelanguage} ({page.pagelanguagedir})
+								{page.pagelanguage}
+								({page.pagelanguagedir})
 							</dd>
 						</dl>
 
 						<dl>
 							<dt>
-							Length
+								Length
 							</dt>
 							<dd>
-							{page.length}
+								{page.length}
 							</dd>
 						</dl>
 					</div>
@@ -47,42 +48,47 @@ class PageDetailComonent extends Component {
 						<h3>Last Revision</h3>
 						<div className="flex">
 							<dl>
-								<dt> Revision ID
+								<dt>
+									Revision ID
 								</dt>
 								<dd>
-								{page.lastrevid}
+									{page.lastrevid}
 								</dd>
 							</dl>
 
 							<dl>
-								<dt> Parent ID
+								<dt>
+									Parent ID
 								</dt>
 								<dd>
-								{revision.parentid}
+									{revision.parentid}
 								</dd>
 							</dl>
 
 							<dl>
-								<dt> User
+								<dt>
+									User
 								</dt>
 								<dd>
-								{revision.user}
+									{revision.user}
 								</dd>
 							</dl>
 
 							<dl>
-								<dt> Timestamp
+								<dt>
+									Timestamp
 								</dt>
 								<dd>
-								{revision.timestamp}
+									{revision.timestamp}
 								</dd>
 							</dl>
 
 							<dl className="comment">
-								<dt> Comment
+								<dt>
+									Comment
 								</dt>
 								<dd>
-								{revision.comment}
+									{revision.comment}
 								</dd>
 							</dl>
 						</div>

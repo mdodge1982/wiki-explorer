@@ -22,22 +22,22 @@ const project = (state = {}, action) => {
 			};
 		case 'PROJECT.UPDATE':
 			let newPages = [];
-			if(action.data.length===1){
+			if (action.data.length === 1) {
 				//if project.update contains 1 page, assume it's a merge
 				const updatedPage = action.data[0];
 				let isBrandNew = true;
 				state.pages.forEach((page) => {
-					if(page.pageid===updatedPage.pageid){
+					if (page.pageid === updatedPage.pageid) {
 						isBrandNew = false;
 						newPages.push(updatedPage);
-					}else{
+					} else {
 						newPages.push(page);
 					}
 				});
-				if(isBrandNew){
+				if (isBrandNew) {
 					newPages.push(updatedPage);
 				}
-			}else{
+			} else {
 				//If there are multiple pages, assume it's a replace
 				newPages = action.data;
 			}
@@ -54,7 +54,7 @@ const project = (state = {}, action) => {
 		case 'SELECT_PROJECT':
 			return {
 				...state,
-				selected: action.id===state.name
+				selected: action.id === state.name
 			};
 		case 'DESELECT_PROJECT':
 			return {
@@ -83,7 +83,7 @@ const byName = (state = {}, action) => {
 				[action.id]: project(state[action.id], action),
 				selected: action.id
 			};
-			if(curSelected){
+			if (curSelected) {
 				newState[curSelected] = project(state[curSelected], action);
 			}
 			return newState;
@@ -94,7 +94,7 @@ const byName = (state = {}, action) => {
 				selected: null
 			};
 		case 'PROJECT.UPDATE':
-			if(state.selected){
+			if (state.selected) {
 				return {
 					...state,
 					[state.selected]: project(state[state.selected], action)
@@ -102,7 +102,7 @@ const byName = (state = {}, action) => {
 			}
 			return state;
 		default:
-			if(action.id&&state[action.id]){
+			if (action.id && state[action.id]) {
 				return {
 					...state,
 					[action.id]: project(state[action.id], action)
@@ -121,8 +121,4 @@ const allNames = (state = [], action) => {
 	}
 };
 
-export default combineReducers({
-	byName,
-	allNames,
-	selectedPage
-});
+export default combineReducers({byName, allNames, selectedPage});
