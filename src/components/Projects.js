@@ -37,8 +37,9 @@ class ProjectsComponent extends Component {
 		return (
 			<div>
 				<div className="header">
+					<p className="right mobile-hide"><small>Front-end code by Meredith Dodge</small></p>
 					<h1>Wiki Meta Explorer</h1>
-					<a href="#top" style={{float:'right'}}>Top</a>
+					<a href="#top" className="right">Top</a>
 					<div>{idxArr.map(letter => (
 						<a key={letter} href={'#'+letter}>{letter}</a>
 					))}</div>

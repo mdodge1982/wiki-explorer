@@ -117,16 +117,23 @@ const selectProject = (projectName) => {
 	};
 }
 
-const fetchPage = (pageId) => {
+const fetchPage = (page) => {
 	return (dispatch,getState) => {
-		dispatch(requestSocket({
-			id: pageId,
-			name: 'page.query',
-			args: {
-				pageId
-			}
-		}));
-		dispatch(togglePageSubscription(pageId,true));
+		dispatch({
+			type: 'PAGE.UPDATE',
+			data: page,
+			isFetching: true
+		});
+		//Removing PAGE.QUERY for now since we already get the same info from PAGES.LIST
+		//Keep the subscription in case of updates
+		// dispatch(requestSocket({
+		// 	id: page.pageid,
+		// 	name: 'page.query',
+		// 	args: {
+		// 		pageId: page.pageid
+		// 	}
+		// }));
+		dispatch(togglePageSubscription(page.pageid,true));
 	}
 }
 

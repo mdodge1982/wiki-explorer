@@ -24,3 +24,14 @@ button {
 	display: flex;
 	flex-wrap: wrap;
 }
+.right {
+	float: right;
+}
+@media (max-width: 760px) {
+	.mobile-hide {
+		display: none;
+	}
+	h1 {
+		font-size: 1.5em;
+	}
+}

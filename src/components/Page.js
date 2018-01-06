@@ -10,7 +10,7 @@ class PageComonent extends Component {
 		);
 	}
 	handleClick() {
-		this.props.dispatch(fetchPage(this.props.page.pageid));
+		this.props.dispatch(fetchPage(this.props.page));
 	}
 }
 
