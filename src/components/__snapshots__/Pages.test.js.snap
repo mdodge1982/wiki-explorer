@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test render 1`] = `
+<ul
+  className="Pages"
+>
+  <li
+    className="Page"
+  >
+    <h5
+      onClick={[Function]}
+    />
+  </li>
+  <li
+    className="Page"
+  >
+    <h5
+      onClick={[Function]}
+    />
+  </li>
+  <li
+    className="Page"
+  >
+    <h5
+      onClick={[Function]}
+    />
+  </li>
+</ul>
+`;

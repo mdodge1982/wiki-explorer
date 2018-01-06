@@ -30,10 +30,6 @@ class ProjectsComponent extends Component {
 				<Project key={projectName} projectName={projectName} isNewIdx={isNewIdx} />
 			)
 		});
-		let pageDetail = '';
-		if(this.props.selectedPage.pageid){
-			pageDetail = (<PageDetail page={this.props.selectedPage}/>);
-		}
 		return (
 			<div>
 				<div className="header">
@@ -47,13 +43,13 @@ class ProjectsComponent extends Component {
 				<ul className="Projects jump-link" id="top">
 					{projects}
 				</ul>
-				{pageDetail}
+				<PageDetail />
 			</div>
 		);
 	}
 }
 
 //Use connect to get state and dispatch
-const Projects = connect(({allNames,selectedPage}) => ({allNames,selectedPage}))(ProjectsComponent);
+const Projects = connect(({allNames}) => ({allNames}))(ProjectsComponent);
 
 export default Projects;

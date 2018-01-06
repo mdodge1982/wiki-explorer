@@ -1,5 +1,4 @@
-
-const socket = new WebSocket("wss://wiki-meta-explorer.herokuapp.com");
+import socket from './websocket';
 
 const listentoSocket = () => {
 	return (dispatch,getState) => {
@@ -58,7 +57,7 @@ const fetchProjects = () => {
 	});
 };
 
-const fetchPages = (projectName) => {
+const selectPages = (projectName) => {
 	return requestSocket({
 		id: projectName,
 		name: 'page.list',
@@ -100,7 +99,7 @@ const selectProject = (projectName) => {
 		}else{
 			//Fetch the pages if there are none yet
 			if(project.pages.length===0){
-				dispatch(fetchPages(projectName));
+				dispatch(selectPages(projectName));
 			}
 			//subscribe to the newly selected project
 			dispatch(toggleProjectSubscription(projectName,true));
@@ -117,14 +116,14 @@ const selectProject = (projectName) => {
 	};
 }
 
-const fetchPage = (page) => {
+const selectPage = (page) => {
 	return (dispatch,getState) => {
 		dispatch({
 			type: 'PAGE.UPDATE',
 			data: page,
 			isFetching: true
 		});
-		//Removing PAGE.QUERY for now since we already get the same info from PAGES.LIST
+		//Removing page.query for now since we already get the same info from pages.list
 		//Keep the subscription in case of updates
 		// dispatch(requestSocket({
 		// 	id: page.pageid,
@@ -148,4 +147,4 @@ const clearSelectedPage = () => {
 
 }
 
-export {listentoSocket,fetchProjects,selectProject,fetchPage,clearSelectedPage};
+export {listentoSocket,fetchProjects,selectProject,selectPage,clearSelectedPage};

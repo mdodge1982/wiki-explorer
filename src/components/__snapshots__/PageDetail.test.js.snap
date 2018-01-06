@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test render 1`] = `
+<div
+  className="PageDetail"
+>
+  <div
+    className="inner"
+  >
+    <button
+      onClick={[Function]}
+    >
+      ×
+    </button>
+    <h1>
+      Daisy Duck
+    </h1>
+    <div
+      className="flex"
+    >
+      <dl>
+        <dt>
+          Page ID
+        </dt>
+        <dd>
+          9020
+        </dd>
+      </dl>
+      <dl>
+        <dt>
+          Language
+        </dt>
+        <dd>
+          en
+           (
+          ltr
+          )
+        </dd>
+      </dl>
+      <dl>
+        <dt>
+          Length
+        </dt>
+        <dd>
+          37954
+        </dd>
+      </dl>
+    </div>
+    <div
+      className="revision"
+    >
+      <h3>
+        Last Revision
+      </h3>
+      <div
+        className="flex"
+      >
+        <dl>
+          <dt>
+             Revision ID
+          </dt>
+          <dd>
+            797710133
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+             Parent ID
+          </dt>
+          <dd>
+            797709597
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+             User
+          </dt>
+          <dd>
+            XXX.YYY.ZZZ.WWW
+          </dd>
+        </dl>
+        <dl>
+          <dt>
+             Timestamp
+          </dt>
+          <dd>
+            2017-08-28T19:03:35Z
+          </dd>
+        </dl>
+        <dl
+          className="comment"
+        >
+          <dt>
+             Comment
+          </dt>
+          <dd>
+            Test Comment
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</div>
+`;

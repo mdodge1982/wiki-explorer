@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test render 1`] = `
+<div>
+  <div
+    className="header"
+  >
+    <p
+      className="right mobile-hide"
+    >
+      <small>
+        Front-end code by Meredith Dodge
+      </small>
+    </p>
+    <h1>
+      Wiki Meta Explorer
+    </h1>
+    <a
+      className="right"
+      href="#top"
+    >
+      Top
+    </a>
+    <div>
+      <a
+        href="#M"
+      >
+        M
+      </a>
+    </div>
+  </div>
+  <ul
+    className="Projects jump-link"
+    id="top"
+  >
+    <li
+      className="Project"
+    >
+      <span
+        className="named-anchor"
+        id="M"
+      />
+      <h4
+        onClick={[Function]}
+      >
+        My Fun Project
+         
+        
+      </h4>
+      
+    </li>
+  </ul>
+  
+</div>
+`;

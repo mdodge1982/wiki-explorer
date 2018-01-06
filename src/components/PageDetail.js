@@ -6,6 +6,9 @@ import './PageDetail.css';
 class PageDetailComonent extends Component {
 	render() {
 		const page = this.props.page;
+		if(!page.pageid){
+			return '';
+		}
 		const revision = page.revisions[0];
 		return (
 			<div className="PageDetail">
@@ -93,6 +96,6 @@ class PageDetailComonent extends Component {
 	}
 }
 
-const PageDetail = connect()(PageDetailComonent);
+const PageDetail = connect(({selectedPage}) => ({page: selectedPage}))(PageDetailComonent);
 
 export default PageDetail;

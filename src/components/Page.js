@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {fetchPage} from '../actions';
+import {selectPage} from '../actions';
 import './Page.css';
 
 class PageComonent extends Component {
@@ -10,7 +10,7 @@ class PageComonent extends Component {
 		);
 	}
 	handleClick() {
-		this.props.dispatch(fetchPage(this.props.page));
+		this.props.dispatch(selectPage(this.props.page));
 	}
 }
 

@@ -21,6 +21,7 @@ class Loading extends Component {
 		)
 	}
 	componentWillUnmount() {
+		console.log('component unmount');
 		clearInterval(this.state.int);
 	}
 }
