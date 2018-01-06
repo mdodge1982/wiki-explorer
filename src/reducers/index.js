@@ -1,5 +1,17 @@
 import {combineReducers} from 'redux';
 
+const selectedPage = (state = {}, action) => {
+	switch (action.type) {
+		case 'PAGE.QUERY':
+		case 'PAGE.UPDATE':
+			return action.data;
+		case 'CLEAR_SELECTED_PAGE':
+			return {};
+		default:
+			return state;
+	}
+}
+
 const project = (state = {}, action) => {
 	switch (action.type) {
 		case 'PAGE.LIST':
@@ -7,6 +19,32 @@ const project = (state = {}, action) => {
 				...state,
 				isFetching: false,
 				pages: action.data
+			};
+		case 'PROJECT.UPDATE':
+			let newPages = [];
+			if(action.data.length===1){
+				//if project.update contains 1 page, assume it's a merge
+				const updatedPage = action.data[0];
+				let isBrandNew = true;
+				state.pages.forEach((page) => {
+					if(page.pageid===updatedPage.pageid){
+						isBrandNew = false;
+						newPages.push(updatedPage);
+					}else{
+						newPages.push(page);
+					}
+				});
+				if(isBrandNew){
+					newPages.push(updatedPage);
+				}
+			}else{
+				//If there are multiple pages, assume it's a replace
+				newPages = action.data;
+			}
+			return {
+				...state,
+				isFetching: false,
+				pages: newPages
 			};
 		case 'REQUEST_PAGE.LIST':
 			return {
@@ -55,6 +93,14 @@ const byName = (state = {}, action) => {
 				[action.id]: project(state[action.id], action),
 				selected: null
 			};
+		case 'PROJECT.UPDATE':
+			if(state.selected){
+				return {
+					...state,
+					[state.selected]: project(state[state.selected], action)
+				};
+			}
+			return state;
 		default:
 			if(action.id&&state[action.id]){
 				return {
@@ -77,5 +123,6 @@ const allNames = (state = [], action) => {
 
 export default combineReducers({
 	byName,
-	allNames
+	allNames,
+	selectedPage
 });

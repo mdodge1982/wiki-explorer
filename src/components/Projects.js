@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import './Projects.css';
 import {listentoSocket,fetchProjects} from '../actions';
 import Project from './Project';
+import PageDetail from './PageDetail';
 
 class ProjectsComponent extends Component {
 	constructor(props) {
@@ -29,20 +30,29 @@ class ProjectsComponent extends Component {
 				<Project key={projectName} projectName={projectName} isNewIdx={isNewIdx} />
 			)
 		});
+		let pageDetail = '';
+		if(this.props.selectedPage.pageid){
+			pageDetail = (<PageDetail page={this.props.selectedPage}/>);
+		}
 		return (
 			<div>
-				<p className="index">{idxArr.map(letter => (
-					<a key={letter} href={'#'+letter}>{letter}</a>
-				))}</p>
-				<ul className="Projects">
+				<div className="header">
+					<h1>Wiki Meta Explorer</h1>
+					<a href="#top" style={{float:'right'}}>Top</a>
+					<div>{idxArr.map(letter => (
+						<a key={letter} href={'#'+letter}>{letter}</a>
+					))}</div>
+				</div>
+				<ul className="Projects jump-link" id="top">
 					{projects}
 				</ul>
+				{pageDetail}
 			</div>
 		);
 	}
 }
 
 //Use connect to get state and dispatch
-const Projects = connect(({allNames}) => ({allNames}))(ProjectsComponent);
+const Projects = connect(({allNames,selectedPage}) => ({allNames,selectedPage}))(ProjectsComponent);
 
 export default Projects;

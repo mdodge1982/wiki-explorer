@@ -8,11 +8,10 @@ import './Project.css';
 class ProjectComponent extends Component {
 	render() {
 		const project = this.props.project;
-		const attrs = {};
+		let namedAnchor = '';
 		let className = 'Project';
 		if(this.props.isNewIdx){
-			attrs.id = project.name.charAt(0);
-			className += ' jump-link';
+			namedAnchor = (<span className="named-anchor" id={project.name.charAt(0)}></span>)
 		}
 		let content = '';
 		if(project.pages.length>0){
@@ -28,7 +27,8 @@ class ProjectComponent extends Component {
 			loading = (<Loading />)
 		}
 		return (
-			<li {...attrs} className={className}>
+			<li className={className}>
+				{namedAnchor}
 				<h4 onClick={() => this.handleClick(project.name)}>{project.name} {loading}</h4>
 				{content}
 			</li>
